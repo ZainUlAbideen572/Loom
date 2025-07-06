@@ -85,6 +85,12 @@ video{
     background-color: aqua;
     z-index: 2;
 }
+.capture-btn{
+    cursor: pointer;
+}
+.record-btn{
+    cursor: pointer;
+}
 .filter{
     height: 4rem;
     background-image: url('https://picsum.photos/seed/picsum/450/300');

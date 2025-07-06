@@ -9,15 +9,40 @@
 </head>
 <body>
     <div class="back">BACK</div>
-    <div class="gallery-cont"></div>
+    <div id="cont" class="gallery-cont"></div>
 
-    <script src="./db.js"></script>
-    <script src="./gallery.js"></script>
-    <script>
+    <script src="./db.js" defer></script>
+    <script src="./gallery.js" defer></script>
+    <script defer>
+        
+
         let backElem = document.querySelector(".back");
+        let ele=document.getElementById('cont')
+       
+        function back(ele) {
+                console.log('clicked');
+                console.log(ele.childNodes.length)
+                if (ele.childNodes.length === 0) {
+                    setTimeout(() => {
+                        location.assign('./index.html');
+                    }, 1000);
+                }
+            }
+
+
         backElem.addEventListener("click", (e) => {
             location.assign("./index.html");
+
         })
+        const observer=new MutationObserver(()=>{
+            back(ele)
+        })
+
+        observer.observe(ele,{childList:true})
+        // MutationObserver helps ust to observe the changes in the DOM 
+        // create the instance of observer then call observe method on it.
+        // the second argument is the options object which contains the type of changes we want to observe.
+        // Options are according to the config itself we cant define childNodes because it is not a property which defines the type of change.
     </script>
 </body>
 </html>
